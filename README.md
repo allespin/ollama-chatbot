@@ -56,11 +56,13 @@ chatbot-ollama/
 ## 1. Pré-requisitos
 
 - [Ollama](https://ollama.com) instalado e rodando localmente
+
 - Um modelo baixado, por exemplo:
   ```bash
   ollama pull llama3.1
   ```
 - Python 3.10+
+
 - Node.js 18+
 
 ## 2. Rodando o back-end
@@ -76,7 +78,9 @@ uvicorn main:app --reload --port 8000
 
 A API sobe em `http://localhost:8000`. Endpoints:
 - `GET /health` — checa se o servidor e o Ollama estão de pé
+
 - `POST /chat` — resposta completa (sem streaming)
+
 - `POST /chat/stream` — resposta em streaming (SSE), usada pelo front-end
 
 ## 3. Rodando o front-end
@@ -93,13 +97,17 @@ Acesse `http://localhost:5173`.
 ## 4. Personalização
 
 - **Modelo do Ollama**: troque `OLLAMA_MODEL` no `.env` do back-end (ex.: `llama3.1`, `mistral`, `gemma2`, etc.)
+
 - **Personalidade do bot**: edite `SYSTEM_PROMPT` em `backend/main.py`
+
 - **Cores/tema**: ajuste as variáveis HSL em `frontend/src/index.css` (seção `:root`) e os gradientes `from-indigo-500 to-violet-600` usados nos componentes
+
 - **Sem streaming**: se preferir respostas completas (sem efeito de digitação), troque a chamada do front-end de `/chat/stream` para `/chat`
 
 ## Observações
 
-- O CORS no back-end está liberado para `*` apenas para facilitar o desenvolvimento local. Em produção, é necessário restringir para a origem real do seu front-end.
+- O CORS no back-end está liberado para `*` apenas para facilitar o desenvolvimento local. Em produção, é necessário restringir para a origem real do front-end.
+
 - Se aparecer erro de conexão no chat, confira se o Ollama está rodando (`ollama list` para ver os modelos instalados) e se o back-end está acessível na porta configurada.
 
 ---
@@ -141,11 +149,14 @@ chatbot-ollama/
 ## 1. Prerequisites
 
 - [Ollama](https://ollama.com) installed and running locally
+
 - A downloaded model, for example:
   ```bash
   ollama pull llama3.1
   ```
+
 - Python 3.10+
+
 - Node.js 18+
 
 ## 2. Running the back-end
@@ -161,7 +172,9 @@ uvicorn main:app --reload --port 8000
 
 The API will start at `http://localhost:8000`. Endpoints:
 - `GET /health` — Checks if the server and Ollama are up
+
 - `POST /chat` — Full response (no streaming)
+
 - `POST /chat/stream` — Streaming response (SSE), used by the front-end
 
 ## 3. Running the front-end
@@ -178,12 +191,16 @@ Access `http://localhost:5173`.
 ## 4. Customization
 
 - **Ollama Model**: Change `OLLAMA_MODEL` in the back-end's `.env` (e.g., `llama3.1`, `mistral`, `gemma2`, etc.)
+
 - **Bot Personality**: Edit `SYSTEM_PROMPT` in `backend/main.py`
+
 - **Colors/Theme**: Adjust the HSL variables in `frontend/src/index.css` (`:root` section) and the gradients `from-indigo-500 to-violet-600` used in the components
+
 - **Without Streaming**: If you prefer complete responses (no typing effect), change the front-end call from `/chat/stream` to `/chat`
 
 ## Notes
 
-- CORS on the back-end is set to `*` only to facilitate local development. In production, restrict it to your front-end's actual origin.
+- CORS on the back-end is set to `*` only to facilitate local development. In production, restrict it to front-end's actual origin.
+
 - If a connection error occurs in the chat, check if Ollama is running (`ollama list` to see installed models) and if the back-end is accessible on the configured port.
 
